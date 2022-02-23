@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net472;net5.0;net6.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Authors>roman-minyaylov</Authors>
+		<Description>
+			.Net resource manager allows to put ZIP files into resources and get access to included files using Dictionary. Several ZIP files can be included.
+
+			Uncompressed files will be available in the same dictionary.
+		</Description>
+		<Copyright>Roman Minyaylov (c) 2022</Copyright>
+		<PackageProjectUrl>https://github.com/roman-minyaylov/ZIPResourceManager</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/roman-minyaylov/ZIPResourceManager</RepositoryUrl>
+		<PackageTags>resource, manager, management, zip</PackageTags>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.IO.Compression" Version="4.3.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472'">
+		<Reference Include="System.IO.Compression" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\readme.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+</Project>
